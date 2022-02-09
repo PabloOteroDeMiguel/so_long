@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 11:14:26 by potero            #+#    #+#             */
-/*   Updated: 2022/02/09 12:21:07 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:43:40 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	print_border(t_matrix **matrix, int x, int y)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	printf("Matrix border:\n");
@@ -34,8 +34,8 @@ void	print_border(t_matrix **matrix, int x, int y)
 
 void	print_matrix(t_matrix **matrix, int x, int y)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	printf("Matrix:\n");
@@ -54,9 +54,15 @@ void	print_matrix(t_matrix **matrix, int x, int y)
 
 void	print_steps(t_game *game)
 {
-	printf("Steps: %d\n", game->steps);
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_w, 0, 0);
- 	mlx_string_put(game->mlx.mlx, game->mlx.window, 10, 10, 0x000000000, "STEPS: ");
- 	mlx_string_put(game->mlx.mlx, game->mlx.window, 70, 10, 0x000000000, ft_itoa(game->steps));
-}
+	char	*str;
 
+	str = ft_itoa(game->steps);
+	printf("Steps: %d\n", game->steps);
+	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window,
+		game->mlx.img_w, 0, 0);
+	mlx_string_put(game->mlx.mlx, game->mlx.window,
+		10, 10, 0x000000000, "STEPS: ");
+	mlx_string_put(game->mlx.mlx, game->mlx.window,
+		70, 10, 0x000000000, str);
+	free(str);
+}

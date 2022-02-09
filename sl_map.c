@@ -6,11 +6,16 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:49:47 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/09 12:12:10 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:43:42 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void leaks(void)
+{
+	system("leaks so_long");
+}
 
 int	main(int argc, char **argv)
 {
@@ -18,6 +23,7 @@ int	main(int argc, char **argv)
 	int			y;
 	t_game		game;
 
+	atexit(leaks);
 	if (argc > 2)
 	{
 		printf("Error.\nDemasiados argumentos\n");
@@ -88,6 +94,7 @@ int	image(t_game *game, int x, int y)
 		}
 		pos_x++;
 	}
+	print_steps(game);
 	mlx_key_hook(game->mlx.window, key_event, game);
 	mlx_hook(game->mlx.window, 17, (1L << 17), byebye, &game->mlx);
 	mlx_loop(game->mlx.mlx);

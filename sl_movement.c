@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 10:17:50 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/09 12:21:12 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:46:43 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ int	movement(t_game *game, int x, int y)
 {
 	int	new_x;
 	int	new_y;
-	
+
 	new_x = game->bear.x + x;
 	new_y = game->bear.y + y;
 	if (game->matrix[new_x][new_y].value == '1' ||
-			(game->matrix[new_x][new_y].value == 'E' && game->collectibles != 0))
+			(game->matrix[new_x][new_y].value == 'E'
+				&& game->collectibles != 0))
 	{
 		printf("Impossible movement\n");
 		return (1);
@@ -29,7 +30,6 @@ int	movement(t_game *game, int x, int y)
 	{
 		game->bear.x = new_x;
 		game->bear.y = new_y;
-	//	printf("(%d,%d)\n", game->bear.x, game->bear.y);
 		return (0);
 	}
 }
@@ -45,13 +45,13 @@ void	key_a(t_game *game)
 		game->matrix[game->bear.x][game->bear.y].value = '0';
 	}
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_s,
-			(game->bear.y * 120), (game->bear.x * 120));
+		(game->bear.y * 120), (game->bear.x * 120));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_s,
-			((game->bear.y + 1) * 120), ((game->bear.x) * 120));
+		((game->bear.y + 1) * 120), ((game->bear.x) * 120));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->sprite.l[i],
-			(game->bear.y * 120), (game->bear.x * 120 + 25));
+		(game->bear.y * 120), (game->bear.x * 120 + 25));
 	game->frames += 1;
-	game->steps +=1;
+	game->steps += 1;
 	print_steps(game);
 	if (game->matrix[game->bear.x][game->bear.y].value == 'E')
 		close_esc(&game->mlx);
@@ -68,17 +68,16 @@ void	key_d(t_game *game)
 		game->matrix[game->bear.x][game->bear.y].value = '0';
 	}
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_s,
-			(game->bear.y * 120), (game->bear.x * 120));
+		(game->bear.y * 120), (game->bear.x * 120));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_s,
-			((game->bear.y - 1) * 120), ((game->bear.x) * 120));
+		((game->bear.y - 1) * 120), ((game->bear.x) * 120));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->sprite.r[i],
-			(game->bear.y * 120), (game->bear.x * 120 + 25));
-	game->frames += 1;	
-	game->steps +=1;
+		(game->bear.y * 120), (game->bear.x * 120 + 25));
+	game->frames += 1;
+	game->steps += 1;
 	print_steps(game);
 	if (game->matrix[game->bear.x][game->bear.y].value == 'E')
 		close_esc(&game->mlx);
-
 }
 
 void	key_w(t_game *game)
@@ -92,13 +91,13 @@ void	key_w(t_game *game)
 		game->matrix[game->bear.x][game->bear.y].value = '0';
 	}
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_s,
-			(game->bear.y * 120), (game->bear.x * 120));
+		(game->bear.y * 120), (game->bear.x * 120));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_s,
-			(game->bear.y * 120), ((game->bear.x + 1) * 120));
+		(game->bear.y * 120), ((game->bear.x + 1) * 120));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->sprite.u[i],
-			(game->bear.y) * 120, (game->bear.x * 120 + 25));
+		(game->bear.y) * 120, (game->bear.x * 120 + 25));
 	game->frames += 1;
-	game->steps +=1;
+	game->steps += 1;
 	print_steps(game);
 	if (game->matrix[game->bear.x][game->bear.y].value == 'E')
 		close_esc(&game->mlx);
@@ -115,13 +114,13 @@ void	key_s(t_game *game)
 		game->matrix[game->bear.x][game->bear.y].value = '0';
 	}
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_s,
-			(game->bear.y * 120), (game->bear.x * 120));
+		(game->bear.y * 120), (game->bear.x * 120));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->mlx.img_s,
-			(game->bear.y * 120), ((game->bear.x - 1) * 120));
+		(game->bear.y * 120), ((game->bear.x - 1) * 120));
 	mlx_put_image_to_window(game->mlx.mlx, game->mlx.window, game->sprite.d[i],
-			(game->bear.y * 120), (game->bear.x * 120 + 25));
+		(game->bear.y * 120), (game->bear.x * 120 + 25));
 	game->frames += 1;
-	game->steps +=1;
+	game->steps += 1;
 	print_steps(game);
 	if (game->matrix[game->bear.x][game->bear.y].value == 'E')
 		close_esc(&game->mlx);

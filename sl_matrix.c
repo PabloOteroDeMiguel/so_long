@@ -1,41 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_check_map.c                                     :+:      :+:    :+:   */
+/*   sl_matrix.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 11:43:23 by potero            #+#    #+#             */
-/*   Updated: 2022/02/09 13:21:25 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:31:06 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	matrix_size(char *file, int *x, int *y)
-{
-	char	*str;
-	int		map;
-	int		i;
-
-	map = open(file, O_RDONLY);
-	if (map == -1)
-		error_map(0);
-	i = 0;
-	while ((str = get_next_line(map)))
-	{
-		*y = ft_strlen(str);
-		if (*x == 0)
-			i = *y;
-		else if (*y != i)
-			error_map(1);
-		i = *y ;
-		free(str);
-		*x = *x + 1;
-	}
-	*y = *y - 1;
-	close(map);
-}
 
 void	create_border(int x, int y, t_matrix **matrix)
 {

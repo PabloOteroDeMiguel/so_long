@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:50:14 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/09 13:21:30 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:10:20 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	print_matrix(t_matrix **matrix, int x, int y);
 void	print_border(t_matrix **matrix, int x, int y);
 void	print_steps(t_game *game);
 void	matrix_size(char *file, int *x, int *y);
+void	matrix_size_y(char *file, int x, int *y);
 void	create_matrix(char *file, int x, int y, t_matrix **matrix);
 void	create_border(int x, int y, t_matrix **matrix);
 void	read_matrix(t_game *game, int x, int y);

@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 11:22:42 by potero            #+#    #+#             */
-/*   Updated: 2021/10/26 15:57:57 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:45:27 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ size_t	ft_read(char **buff, char **rest, int fd)
 	{
 		*buff = ft_substr(*rest, 0, j + 1);
 		free(*rest);
-        *rest = 0;
+		*rest = 0;
 	}
 	else
 	{
 		free(*rest);
-        *rest = 0;
+		*rest = 0;
 		*buff = ft_calloc_bzero(1, BUFFER_SIZE + 1);
 		read(fd, *buff, BUFFER_SIZE);
 	}
