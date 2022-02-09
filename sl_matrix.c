@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 11:43:23 by potero            #+#    #+#             */
-/*   Updated: 2022/02/09 11:53:31 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:21:25 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	matrix_size(char *file, int *x, int *y)
 	if (map == -1)
 		error_map(0);
 	i = 0;
-	while ((str = get_next_line(map))) /*cuento filas y compruebo que todas sean de la misma long*/
+	while ((str = get_next_line(map)))
 	{
-		*y  = ft_strlen(str);
+		*y = ft_strlen(str);
 		if (*x == 0)
 			i = *y;
 		else if (*y != i)
@@ -33,8 +33,30 @@ void	matrix_size(char *file, int *x, int *y)
 		free(str);
 		*x = *x + 1;
 	}
-	*y = *y - 1; /*salto de linea*/
+	*y = *y - 1;
 	close(map);
+}
+
+void	create_border(int x, int y, t_matrix **matrix)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < x)
+	{
+		j = 0;
+		while (j < y)
+		{
+			if (matrix[i][j].pos_x == 0 || matrix[i][j].pos_x == x - 1
+					|| matrix[i][j].pos_y == 0 || matrix[i][j].pos_y == y - 1)
+				matrix[i][j].border = 1;
+			else
+				matrix[i][j].border = 0;
+			j++;
+		}
+		i++;
+	}
 }
 
 void	create_matrix(char *file, int x, int y, t_matrix **matrix)
@@ -48,28 +70,26 @@ void	create_matrix(char *file, int x, int y, t_matrix **matrix)
 	if (map == -1)
 		error_map(0);
 	i = 0;
-	while ((str = get_next_line(map)))
+	while (i < x)
 	{
+		str = get_next_line(map);
 		j = 0;
 		matrix[i] = malloc(sizeof(t_matrix) * y);
 		if (!matrix[i])
-			exit (0); // Crear función para liberar <i
+			exit (0);
 		while (j < y)
 		{
-			matrix[i][j].pos_x = i;	
+			matrix[i][j].pos_x = i;
 			matrix[i][j].pos_y = j;
 			matrix[i][j].value = str[j];
-			if (matrix[i][j].pos_x == 0 || matrix[i][j].pos_x == x - 1 
-					|| matrix[i][j].pos_y == 0 || matrix[i][j].pos_y == y - 1)
-				matrix[i][j].border = 1;
-			else
-				matrix[i][j].border = 0;
 			j++;
 		}
 		free(str);
 		i++;
 	}
+	create_border(x, y, matrix);
 }
+
 void	read_matrix(t_game *game, int x, int y)
 {
 	int	i;
@@ -96,9 +116,6 @@ void	read_matrix(t_game *game, int x, int y)
 	}
 	if (game->exit != 1 || game->player != 1)
 		error_map(1);
-//	printf("Exit: %d\n", game->exit);
-//	printf("Collectibles: %d\n", game->collectibles);
-//	printf("Players: %d\n", game->player);
 }
 
 void	border(t_matrix **matrix, int x, int y)
@@ -113,11 +130,8 @@ void	border(t_matrix **matrix, int x, int y)
 		while (j < y)
 		{
 			if (matrix[i][j].border == 1)
-			{
-			//	printf("%i,%i->b(%i,%i)v\n", i, j, matrix[i][j].border, matrix[i][j].value);
-				if (matrix[i][j].value != 49) // es un char no un int
+				if (matrix[i][j].value != 49)
 					error_map(1);
-			}
 			j++;
 		}
 		i++;
