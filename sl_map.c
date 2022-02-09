@@ -6,13 +6,13 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:49:47 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/09 16:43:42 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:50:34 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void leaks(void)
+/*
+void	leaks(void)
 {
 	system("leaks so_long");
 }
@@ -35,12 +35,13 @@ int	main(int argc, char **argv)
 	if (!game.matrix)
 		return (0);
 	create_matrix(argv[1], x, y, game.matrix);
+	create_border(x, y, game.matrix);
 	border(game.matrix, x, y);
 	read_matrix(&game, x, y);
 	print_matrix(game.matrix, x, y);
 	print_border(game.matrix, x, y);
 	image(&game, x, y);
-}
+}*/
 
 int	byebye(void)
 {

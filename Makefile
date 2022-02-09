@@ -6,12 +6,12 @@
 #    By: potero-d <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 12:39:44 by potero-d          #+#    #+#              #
-#    Updated: 2022/02/09 16:06:21 by potero-d         ###   ########.fr        #
+#    Updated: 2022/02/09 17:37:25 by potero-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = sl_map.c sl_print.c sl_map_errors.c sl_matrix.c sl_matrix_size.c\
-	   sl_assets.c sl_exit.c sl_key_event.c sl_movement.c\
+	   sl_main.c sl_assets.c sl_exit.c sl_key_event.c sl_movement.c\
 	   gnl/get_next_line_utils.c gnl/get_next_line.c\
 
 LIBFT_PATH = libft/

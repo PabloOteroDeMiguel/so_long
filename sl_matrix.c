@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 11:43:23 by potero            #+#    #+#             */
-/*   Updated: 2022/02/09 16:31:06 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:22:13 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,31 +38,29 @@ void	create_matrix(char *file, int x, int y, t_matrix **matrix)
 {
 	char	*str;
 	int		map;
-	int		i;
-	int		j;
+	int		ij[2];
 
 	map = open(file, O_RDONLY);
 	if (map == -1)
 		error_map(0);
-	i = 0;
-	while (i < x)
+	ij[0] = 0;
+	while (ij[0] < x)
 	{
 		str = get_next_line(map);
-		j = 0;
-		matrix[i] = malloc(sizeof(t_matrix) * y);
-		if (!matrix[i])
+		ij[1] = 0;
+		matrix[ij[0]] = malloc(sizeof(t_matrix) * y);
+		if (!matrix[ij[0]])
 			exit (0);
-		while (j < y)
+		while (ij[1] < y)
 		{
-			matrix[i][j].pos_x = i;
-			matrix[i][j].pos_y = j;
-			matrix[i][j].value = str[j];
-			j++;
+			matrix[ij[0]][ij[1]].pos_x = ij[0];
+			matrix[ij[0]][ij[1]].pos_y = ij[1];
+			matrix[ij[0]][ij[1]].value = str[ij[1]];
+			ij[1]++;
 		}
 		free(str);
-		i++;
+		ij[0]++;
 	}
-	create_border(x, y, matrix);
 }
 
 void	read_matrix(t_game *game, int x, int y)
