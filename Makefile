@@ -6,7 +6,7 @@
 #    By: potero-d <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 12:39:44 by potero-d          #+#    #+#              #
-#    Updated: 2022/02/09 17:37:25 by potero-d         ###   ########.fr        #
+#    Updated: 2022/02/09 22:16:04 by potero           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,10 @@ RM = rm -f
 $(NAME): $(OBJS)
 		@make -C $(LIBFT_PATH) --silent
 		$(CC) $(CFLAGS) $(OBJS) -Imlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -I./libft -L./libft -lft
-	#	$(CC) $(CFLAGS) $(OBJS) -lmlx -L/usr/X11/lib -lXext -lX11 -lm -o $(NAME)
-all: $(NAME)
+	#	$(CC) $(CFLAGS) $(OBJS) -lmlx -L/usr/X11/lib -lXext -lX11 -lm -o $(NAME)  -I./libft -L./libft -lft
+
+all: $(NAME)  
+
 
 sanitize: $(OBJS)
 		@make -C $(LIBFT_PATH) clean --silent
