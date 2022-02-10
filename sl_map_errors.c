@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 11:57:50 by potero            #+#    #+#             */
-/*   Updated: 2022/02/10 12:17:50 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:03:16 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	error_map(int e, t_matrix **matrix)
 	}
 	else if (e == 2)
 	{
-		printf("Error\nWrong character.\n");
+		printf("Error\nWrong character!!.\n");
 		free_matrix(matrix);
 		exit(0);
 	}

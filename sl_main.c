@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:33:40 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/10 12:33:06 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:55:31 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	int		y;
 	t_game	game;
 
-	atexit(leaks);
+//	atexit(leaks);
 	if (argc != 2)
 	{
 		printf("Error\nWrong number of arguments\n");
@@ -32,7 +32,8 @@ int	main(int argc, char **argv)
 	file_name(argv[1]);
 	x = 0;
 	matrix_size(argv[1], &x, &y);
-	game.matrix = malloc(sizeof(t_matrix *) * x);
+	game.matrix = malloc(sizeof(t_matrix *) * x + 1);
+	game.matrix[x] = 0;
 	if (!game.matrix)
 		return (0);
 	init(&game, x, y, argv[1]);
@@ -46,6 +47,6 @@ void	init(t_game *game, int x, int y, char *argv)
 	border(game->matrix, x, y);
 	read_map(game, x, y);
 	read_matrix(game, x, y);
-	print_matrix(game->matrix, x, y);
-	print_border(game->matrix, x, y);
+//	print_matrix(game->matrix, x, y);
+//	print_border(game->matrix, x, y);
 }

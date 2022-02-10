@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 13:58:23 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/10 11:44:19 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:39:28 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_matrix
 	int		pos_x;
 	int		pos_y;
 	int		border;
+	int		size;
 	char	value;
 }	t_matrix;
 

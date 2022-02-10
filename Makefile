@@ -6,7 +6,7 @@
 #    By: potero-d <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 12:39:44 by potero-d          #+#    #+#              #
-#    Updated: 2022/02/10 12:18:07 by potero-d         ###   ########.fr        #
+#    Updated: 2022/02/10 13:49:07 by potero-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,8 @@ all: $(NAME)
 
 
 sanitize: $(OBJS)
-		@make -C $(LIBFT_PATH) clean --silent
-		$(CC) $(CFLAGS) $(OBJS) -Imlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -I./libft -L./libft -lft -fsanitize=address -g -O
+		@make -C $(LIBFT_PATH)  --silent
+		$(CC) $(CFLAGS) $(OBJS) -Imlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -I./libft -L./libft -lft -fsanitize=address -g3 -O3
 
 clean:
 			$(RM) $(OBJS)

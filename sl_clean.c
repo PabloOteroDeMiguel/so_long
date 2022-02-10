@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 10:14:14 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/10 12:29:32 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:55:25 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	free_matrix(t_matrix **matrix)
 	i = 0;
 	while (matrix[i])
 	{
+		free(matrix[i]);
 		i++;
 	}
 	free(matrix);

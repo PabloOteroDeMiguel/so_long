@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:27:48 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/10 12:04:04 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:02:10 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ void	matrix_size_y(char *file, int x, int *y)
 	{
 		str = get_next_line(map);
 		*y = ft_strlen(str);
+		free(str);
 		if (i == 0)
 			aux = *y;
 		else if (*y != aux)
 			error_map_no(1);
 		aux = *y;
-		free(str);
 		i++;
 	}
 	*y = *y - 1;
