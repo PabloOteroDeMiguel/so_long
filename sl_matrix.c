@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 11:43:23 by potero            #+#    #+#             */
-/*   Updated: 2022/02/10 12:04:07 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/10 12:33:01 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,11 @@ void	read_map(t_game *game, int x, int y)
 		j = 0;
 		while (j < y)
 		{
-			if (game->matrix[i][j].value != 'C' && game->matrix[i][j].value != 'P' &&
-					game->matrix[i][j].value != 'E' && game->matrix[i][j].value != '0' &&
-						game->matrix[i][j].value != '1')
+			if (game->matrix[i][j].value != 'C' &&
+					game->matrix[i][j].value != 'P' &&
+						game->matrix[i][j].value != 'E' &&
+							game->matrix[i][j].value != '0' &&
+								game->matrix[i][j].value != '1')
 				error_map(2, game->matrix);
 			j++;
 		}
