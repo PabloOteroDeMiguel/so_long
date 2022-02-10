@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 11:43:23 by potero            #+#    #+#             */
-/*   Updated: 2022/02/09 17:22:13 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/10 12:04:07 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	create_matrix(char *file, int x, int y, t_matrix **matrix)
 
 	map = open(file, O_RDONLY);
 	if (map == -1)
-		error_map(0);
+		error_map_no(0);
 	ij[0] = 0;
 	while (ij[0] < x)
 	{
@@ -60,6 +60,29 @@ void	create_matrix(char *file, int x, int y, t_matrix **matrix)
 		}
 		free(str);
 		ij[0]++;
+	}
+}
+
+void	read_map(t_game *game, int x, int y)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	if (game)
+		;
+	while (i < x)
+	{
+		j = 0;
+		while (j < y)
+		{
+			if (game->matrix[i][j].value != 'C' && game->matrix[i][j].value != 'P' &&
+					game->matrix[i][j].value != 'E' && game->matrix[i][j].value != '0' &&
+						game->matrix[i][j].value != '1')
+				error_map(2, game->matrix);
+			j++;
+		}
+		i++;
 	}
 }
 
@@ -88,7 +111,7 @@ void	read_matrix(t_game *game, int x, int y)
 	j++;
 	}
 	if (game->exit != 1 || game->player != 1)
-		error_map(1);
+		error_map(1, game->matrix);
 }
 
 void	border(t_matrix **matrix, int x, int y)
@@ -104,7 +127,7 @@ void	border(t_matrix **matrix, int x, int y)
 		{
 			if (matrix[i][j].border == 1)
 				if (matrix[i][j].value != 49)
-					error_map(1);
+					error_map(1, matrix);
 			j++;
 		}
 		i++;
