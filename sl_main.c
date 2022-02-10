@@ -6,22 +6,11 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:33:40 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/10 15:23:59 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/10 16:49:21 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	leaks(void)
-{
-	system("leaks so_long");
-}
-
-int	byebye(void)
-{
-	exit(0);
-	return (1);
-}
 
 int	main(int argc, char **argv)
 {
@@ -29,7 +18,6 @@ int	main(int argc, char **argv)
 	int		y;
 	t_game	game;
 
-	atexit(leaks);
 	if (argc != 2)
 	{
 		printf("Error\nWrong number of arguments\n");
@@ -64,15 +52,13 @@ void	init(t_game *game, int x, int y, char *argv)
 	sprites_down(game);
 	game->steps = 0;
 	game->frames = 0;
-//	print_matrix(game->matrix, x, y);
-//	print_border(game->matrix, x, y);
 }
 
 int	hook_loop(t_game *game)
 {
 	print_steps(game);
 	mlx_key_hook(game->mlx.window, key_event, game);
-	mlx_hook(game->mlx.window, 17, (1L << 17), byebye, &game->mlx);
+	mlx_hook(game->mlx.window, 17, (1L << 17), close_esc, &game->mlx);
 	mlx_loop(game->mlx.mlx);
 	return (0);
 }

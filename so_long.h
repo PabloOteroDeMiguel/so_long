@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:50:14 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/10 15:23:05 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/10 16:42:34 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	sprites_down(t_game *game);
 
 int		close_esc(t_mlx *mlx);
 int		key_event(int key_code, t_game *game);
-int		image(t_game *game, int x, int y);
+void	image(t_game *game, int x, int y);
 
 int		movement(t_game *game, int x, int y);
 void	key_a(t_game *game);
