@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:49:47 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/10 12:56:44 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/10 15:23:57 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 
 	atexit(leaks);
 	if (argc > 2)
-	{
+game->mlx.mlx = mlx_init();	{
 		printf("Error.\nDemasiados argumentos\n");
 		exit(0);
 	}
@@ -42,28 +42,28 @@ int	main(int argc, char **argv)
 	print_border(game.matrix, x, y);
 	image(&game, x, y);
 }*/
-
+/*
 int	byebye(void)
 {
 	exit(0);
 	return (1);
-}
+}*/
 
 int	image(t_game *game, int x, int y)
 {
 	int	pos_x;
 	int	pos_y;
 
-	game->mlx.mlx = mlx_init();
-	game->mlx.window = mlx_new_window(game->mlx.mlx, (y * 120), (x * 120), "So Long");
-	assets(&game->mlx);
+//	game->mlx.mlx = mlx_init();
+//	game->mlx.window = mlx_new_window(game->mlx.mlx, (y * 120), (x * 120), "So Long");
+/*	assets(&game->mlx);
 	sprites_right(game);
 	sprites_left(game);
 	sprites_up(game);
 	sprites_down(game);
-	game->steps = 0;
+	game->steps = 0;*/
 	pos_x = 0;
-	game->frames = 0;
+//	game->frames = 0;
 	while (pos_x < x)
 	{
 		pos_y = 0;
@@ -95,9 +95,9 @@ int	image(t_game *game, int x, int y)
 		}
 		pos_x++;
 	}
-	print_steps(game);
+/*	print_steps(game);
 	mlx_key_hook(game->mlx.window, key_event, game);
 	mlx_hook(game->mlx.window, 17, (1L << 17), byebye, &game->mlx);
-	mlx_loop(game->mlx.mlx);
+	mlx_loop(game->mlx.mlx);*/
 	return (0);
 }

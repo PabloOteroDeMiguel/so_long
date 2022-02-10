@@ -6,15 +6,16 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 12:51:25 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/08 11:20:25 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/10 15:23:55 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	close_esc(t_mlx *mlx)
+int	close_esc(t_mlx *mlx)
 {
 	mlx_clear_window(mlx->mlx, mlx->window);
 	mlx_destroy_window(mlx->mlx, mlx->window);
 	exit(0);
+	return(0);
 }

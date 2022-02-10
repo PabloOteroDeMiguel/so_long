@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:50:14 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/10 12:28:56 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/10 15:23:05 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	create_border(int x, int y, t_matrix **matrix);
 void	read_matrix(t_game *game, int x, int y);
 void	read_map(t_game *game, int x, int y);
 void	border(t_matrix **matrix, int x, int y);
+int		hook_loop(t_game *game);
 
 void	error_map(int e, t_matrix **matrix);
 void	error_map_no(int e);
@@ -45,7 +46,7 @@ void	sprites_left(t_game *game);
 void	sprites_up(t_game *game);
 void	sprites_down(t_game *game);
 
-void	close_esc(t_mlx *mlx);
+int		close_esc(t_mlx *mlx);
 int		key_event(int key_code, t_game *game);
 int		image(t_game *game, int x, int y);
 
