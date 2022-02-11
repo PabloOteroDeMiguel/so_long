@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 11:43:23 by potero            #+#    #+#             */
-/*   Updated: 2022/02/11 10:21:38 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/11 11:50:44 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	create_matrix(char *file, int x, int y, t_matrix **matrix)
 		ij[1] = 0;
 		matrix[ij[0]] = malloc(sizeof(t_matrix) * y);
 		if (!matrix[ij[0]])
-			exit (0);
+			memory_error(matrix);
 		while (ij[1] < y)
 		{
 			matrix[ij[0]][ij[1]].pos_x = ij[0];

@@ -6,7 +6,7 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:50:14 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/10 16:42:34 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/11 11:50:46 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		hook_loop(t_game *game);
 void	error_map(int e, t_matrix **matrix);
 void	error_map_no(int e);
 void	file_name(char *str);
+void	memory_error(t_matrix **matrix);
 
 void	assets(t_mlx *mlx);
 void	sprites_right(t_game *game);

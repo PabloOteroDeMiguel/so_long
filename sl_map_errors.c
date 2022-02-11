@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 11:57:50 by potero            #+#    #+#             */
-/*   Updated: 2022/02/11 10:18:47 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/11 11:50:41 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,11 @@ void	error_map_no(int e)
 		printf("Error\nBad file.\n");
 		exit(0);
 	}
-}	
+}
+
+void	memory_error(t_matrix **matrix)
+{
+	printf("Error\nMemory error.\n");
+	free_matrix(matrix);
+	exit(0);
+}
