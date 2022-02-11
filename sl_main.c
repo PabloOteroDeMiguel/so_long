@@ -6,17 +6,24 @@
 /*   By: potero-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:33:40 by potero-d          #+#    #+#             */
-/*   Updated: 2022/02/10 16:49:21 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/11 10:20:33 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	leaks(void)
+{
+	system("leaks so_long");
+}
 
 int	main(int argc, char **argv)
 {
 	int		x;
 	int		y;
 	t_game	game;
+
+	atexit(leaks);
 
 	if (argc != 2)
 	{

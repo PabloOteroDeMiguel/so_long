@@ -6,7 +6,7 @@
 /*   By: potero <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 11:43:23 by potero            #+#    #+#             */
-/*   Updated: 2022/02/10 13:55:22 by potero-d         ###   ########.fr       */
+/*   Updated: 2022/02/11 10:21:38 by potero-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	read_matrix(t_game *game, int x, int y)
 		}
 	j++;
 	}
-	if (game->exit != 1 || game->player != 1)
+	if (game->exit != 1 || game->player != 1 || game->collectibles < 1)
 		error_map(1, game->matrix);
 }
 
